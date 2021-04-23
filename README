@@ -26,3 +26,4 @@ Setting up the virtual machine
 - Realize that the Makefile conflicts with the one provided by the professor, I ran my .c file in a separate directory since that's how you showed it
 in the how-to video. The Makefile in this repo is the one from the default linux repo. If you want to test this code (contained in cmpe283-1.c)
 you'll need to use the Makefile you've provided on Canvas, which I did not edit.
+- Added files to git repo and made numerous edits with clarifications.
