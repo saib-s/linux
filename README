@@ -23,5 +23,5 @@ Setting up the virtual machine
 - Run “make”
 - Run “sudo insmod ./cmpe283-1.ko”
 - Run “dmesg” to see results
-- Realize that the Makefile conflicts with the one provided by the professor, upload solution separately since he mentioned in the assignment how-to that the linux repo was optional? I still have it and it’s still public, you can find it here: https://github.com/saib-s/linux
-
+- Realize that the Makefile conflicts with the one provided by the professor, I ran my .c file in a separate directory since that's how you showed it
+in the how-to video. The Makefile in this repo is the one from the default linux repo.
