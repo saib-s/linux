@@ -24,4 +24,5 @@ Setting up the virtual machine
 - Run “sudo insmod ./cmpe283-1.ko”
 - Run “dmesg” to see results
 - Realize that the Makefile conflicts with the one provided by the professor, I ran my .c file in a separate directory since that's how you showed it
-in the how-to video. The Makefile in this repo is the one from the default linux repo.
+in the how-to video. The Makefile in this repo is the one from the default linux repo. If you want to test this code (contained in cmpe283-1.c)
+you'll need to use the Makefile you've provided on Canvas, which I did not edit.
