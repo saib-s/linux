@@ -14,7 +14,7 @@ Setting up the virtual machine
 - (optional) Watched my favorite show for about 25 minutes because this took a little while
 - Opened the AMD64 Architecture Programmer’s Manual, went over to Volume 3, Appendix E, and began copying over the features that each of the named registers keep  track of. 
 - Basic SVM information (0x8000000A(%eax)) can be found on page 625
-- Wrote a separate function to print the SVM revision number
+- Wrote a separate function to print the SVM revision number, creatively named "revision_num_printer"
 - SVM Basic Features (0x8000000A(%edx)) can be found on pages 625-626
 - SVM extended features (0x8000001A(%eax)) can be found on page 627
 - SVM encrypted VM features (0x8000001F(various)) can be found on pages 634-635
