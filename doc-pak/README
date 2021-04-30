@@ -1,0 +1,27 @@
+Team Members: Suleyman Saib (on an AMD processor)
+
+Question 1: I was the only member of this team
+
+Question 2:
+
+Setting up the virtual machine
+- Installed VMWare Workstation Pro 16
+- Downloaded the latest version of Ubuntu LTS
+- Started a new virtual machine on VMWare using the version of Ubuntu I had installed
+- Ran “sudo apt-get install build-essential procps curl file git” in Terminal in order to get a few tools ready for cloning repositories and other fun command line shenanigans
+- Ran “sudo apt-get install libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf”
+- Ran “git clone https://github.com/saib-s/linux.git” to clone my fork of the linux repository onto my virtual machine 
+- (optional) Watched my favorite show for about 25 minutes because this took a little while
+- Opened the AMD64 Architecture Programmer’s Manual, went over to Volume 3, Appendix E, and began copying over the features that each of the named registers keep  track of. 
+- Basic SVM information (0x8000000A(%eax)) can be found on page 625
+- Wrote a separate function to print the SVM revision number
+- SVM Basic Features (0x8000000A(%edx)) can be found on pages 625-626
+- SVM extended features (0x8000001A(%eax)) can be found on page 627
+- SVM encrypted VM features (0x8000001F(various)) can be found on pages 634-635
+- While the assignment specifications mention that these features are spread across various registers, the APM only keeps track of whether or not a feature is supported in EAX. The other registers store locations and the maximum quantities of certain variables, and so I limited my solution to the EAX register.
+- Ran the code and checked results
+- Run “make”
+- Run “sudo insmod ./cmpe283-1.ko”
+- Run “dmesg” to see results
+- Realize that the Makefile conflicts with the one provided by the professor, I ran my .c file in a separate directory since that's how you showed it
+in the how-to video. The Makefile in this repo is the one from the default linux repo.

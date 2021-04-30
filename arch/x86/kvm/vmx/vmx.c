@@ -12,6 +12,9 @@
  *   Avi Kivity   <avi@qumranet.com>
  *   Yaniv Kamay  <yaniv@qumranet.com>
  */
+ 
+#include <linux/sched/clock.h>
+// #include "<linux/smp.h>"
 
 #include <linux/highmem.h>
 #include <linux/hrtimer.h>
@@ -7945,14 +7948,19 @@ static void vmx_cleanup_l1d_flush(void)
 	l1tf_vmx_mitigation = VMENTER_L1D_FLUSH_AUTO;
 }
 
+uint32_t total_exits = 0;
+uint64_t total_exit_time = 0;
+
 static void vmx_exit(void)
 {
+	uint64_t current_time = cpu_clock(raw_smp_processor_id());
 #ifdef CONFIG_KEXEC_CORE
 	RCU_INIT_POINTER(crash_vmclear_loaded_vmcss, NULL);
 	synchronize_rcu();
 #endif
 
 	kvm_exit();
+	total_exits++;
 
 #if IS_ENABLED(CONFIG_HYPERV)
 	if (static_branch_unlikely(&enable_evmcs)) {
@@ -7978,6 +7986,7 @@ static void vmx_exit(void)
 	}
 #endif
 	vmx_cleanup_l1d_flush();
+	total_exit_time = total_exit_time + cpu_clock(raw_smp_processor_id())- current_time; 
 }
 module_exit(vmx_exit);
 

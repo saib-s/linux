@@ -1138,7 +1138,17 @@ int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 
 	eax = kvm_rax_read(vcpu);
 	ecx = kvm_rcx_read(vcpu);
-	kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, false);
+	
+	if (eax == 0X4FFFFFFF) {
+		extern uint32_t total_exits;
+		extern uint64_t total_exit_time;
+		eax = total_exits;
+		ebx = (total_exit_time >> 32);
+		ecx = (total_exit_time & 0xFFFFFFFF);
+	} 
+	else {
+		kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, false);
+	}
 	kvm_rax_write(vcpu, eax);
 	kvm_rbx_write(vcpu, ebx);
 	kvm_rcx_write(vcpu, ecx);
