@@ -1,5 +1,10 @@
 Team Members: Suleyman Saib (on an AMD processor)
 
+
+#################################
+Assignment 1
+#################################
+
 Question 1: I was the only member of this team
 
 Question 2:
@@ -27,3 +32,36 @@ Setting up the virtual machine
 in the how-to video. The Makefile in this repo is the one from the default linux repo. If you want to test this code (contained in cmpe283-1.c)
 you'll need to use the Makefile you've provided on Canvas, which I did not edit.
 - Added files to git repo and made numerous edits with clarifications.
+
+#################################
+Assignment 2
+#################################
+
+Question 1: I was the only member of this team
+
+Question 2:
+
+ASSIGNMENT 2
+
+The following are done after having a setup from assignment 1 above.
+
+Repo setup
+Run “apt-get install build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex libelf-dev”
+Run “cp /boot/config-5.8.0-50-generic ./.config”
+Run “make oldconfig”
+Run “make -j 8 modules && make -j 8 && sudo make modules_install && sudo make install”
+This takes a bit
+Go to vmx.c
+Include linux/sched/clock.h
+Create two global variables to track exits (uint32_t) and exit process time
+In vmx_exit(), increment both using ++ and clock()
+Go to cpuid.c
+In kvm_emulate_cpuid(), add an if statement for when eax == 0x4FFFFFFF
+Read the two variables using extern into the registers
+Make sure the regular cpuid handler is contained in the else statement
+
+Question 3:
+
+It appears that certain actions (like lots of input and output from devices) will result in higher numbers of exits.
+I was unable to capture the number of exits in a full boot, but I would assume that they would be lower than expected since 
+it's able to handle itself without the user interfering.
