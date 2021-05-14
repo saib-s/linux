@@ -75,3 +75,9 @@ Question 2: Following the steps in the example setup video
 - Added a line in /arch/x86/kvm/cpuid.c that caught CPUID values for when eax equals 0x4ffffffe and output the number of exits stored in ecx
 - Added a line in /arch/x86/kvm/svm/svm.c that increments a value in an array for an appropriate exit code in order to track the number of exits
 - Created external variables that connect the two files over the array for the number of exits
+
+Question 3:
+
+It appears that certain actions (like lots of input and output from devices) will result in higher numbers of exits.
+I was unable to capture the number of exits in a full boot (my virtual machine imploded, I have to load from snapshots every time :( no idea why), but I would assume that they would be lower than expected since 
+it's able to handle itself without the user interfering.
