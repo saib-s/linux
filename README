@@ -41,8 +41,6 @@ Question 1: I was the only member of this team
 
 Question 2:
 
-ASSIGNMENT 2
-
 The following are done after having a setup from assignment 1 above.
 
 Repo setup
@@ -65,3 +63,12 @@ Question 3:
 It appears that certain actions (like lots of input and output from devices) will result in higher numbers of exits.
 I was unable to capture the number of exits in a full boot, but I would assume that they would be lower than expected since 
 it's able to handle itself without the user interfering.
+
+
+#################################
+Assignment 3
+#################################
+
+Question 1: I was the only member of this team
+
+Question 2: 
