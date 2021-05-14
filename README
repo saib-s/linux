@@ -71,4 +71,7 @@ Assignment 3
 
 Question 1: I was the only member of this team
 
-Question 2: 
+Question 2: Following the steps in the example setup video
+- Added a line in /arch/x86/kvm/cpuid.c that caught CPUID values for when eax equals 0x4ffffffe and output the number of exits stored in ecx
+- Added a line in /arch/x86/kvm/svm/svm.c that increments a value in an array for an appropriate exit code in order to track the number of exits
+- Created external variables that connect the two files over the array for the number of exits
