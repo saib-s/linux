@@ -48,6 +48,8 @@
 MODULE_AUTHOR("Qumranet");
 MODULE_LICENSE("GPL");
 
+u32 number_of_exits[100];
+
 #ifdef MODULE
 static const struct x86_cpu_id svm_cpu_id[] = {
 	X86_MATCH_FEATURE(X86_FEATURE_SVM, NULL),
@@ -3314,6 +3316,8 @@ int svm_invoke_exit_handler(struct vcpu_svm *svm, u64 exit_code)
 	if (svm_handle_invalid_exit(&svm->vcpu, exit_code))
 		return 0;
 
+	number_of_exits[exit_code]++; //XXX
+	
 #ifdef CONFIG_RETPOLINE
 	if (exit_code == SVM_EXIT_MSR)
 		return msr_interception(svm);
